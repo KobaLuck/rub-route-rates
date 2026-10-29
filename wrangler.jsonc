@@ -1,0 +1,8 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "rub-route-rates",
+  "main": "dist/server/index.js",
+  "compatibility_date": "2026-10-01",
+  "vars": {"AUTO_SOURCE_ENABLED": "true"},
+  "r2_buckets": [{"binding": "BUCKET", "bucket_name": "rub-route-rates-data"}]
+}

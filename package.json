@@ -1,0 +1,18 @@
+{
+  "name": "rub-route-rates",
+  "version": "1.0.0",
+  "description": "Currency dashboard, JSON API and iPhone widget for USD/RUB and USD-based UAH/VND conversions.",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "test": "node scripts/test.mjs",
+    "preview": "node scripts/preview.mjs",
+    "validate": "node scripts/validate-artifact.mjs",
+    "check": "npm run build && npm test && npm run validate"
+  },
+  "engines": {"node": ">=22"},
+  "license": "MIT",
+  "repository": {"type": "git", "url": "https://github.com/KobaLuck/rub-route-rates.git"},
+  "homepage": "https://rub-route-rates.boldmite258.chatgpt.site"
+}
