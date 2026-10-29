@@ -87,16 +87,13 @@ No market-data API key is required. Do not configure `OWNER_EMAIL` on a standalo
 
 ## Refresh behavior
 
-```mermaid
-flowchart LR
-    A[Dashboard / iPhone widget] --> B[Worker: GET /api/rates]
-    B --> C[R2 snapshot]
-    B --> D{Checked within 1 hour?}
-    D -- No --> E[Currency API / fallback]
-    E --> F[Validate dates and rates]
-    F --> C
-    C --> G[Cross-rates and 30 / 365-day comparisons]
-    G --> A
+```text
+Dashboard / Scriptable
+        |
+        v
+GET /api/rates --> R2 snapshot --> cross-rates + comparisons
+        |
+        +-- cache expired --> Currency API / fallback --> validate --> R2
 ```
 
 Refresh is **request-driven**, not a cron job. An open page checks the server every five minutes; the widget requests hourly refresh, subject to iOS scheduling. The server checks upstream at most hourly per persisted successful refresh. The provider publishes daily data, so an hourly check does not imply hourly market observations.
